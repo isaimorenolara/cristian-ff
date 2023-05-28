@@ -1,5 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -349,29 +347,8 @@ class _SignInWidgetState extends State<SignInWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
-                                      onPressed: () async {
-                                        GoRouter.of(context).prepareAuthEvent();
-
-                                        final user = await authManager
-                                            .createAccountWithEmail(
-                                          context,
-                                          _model.emailAddressController.text,
-                                          _model.passwordController.text,
-                                        );
-                                        if (user == null) {
-                                          return;
-                                        }
-
-                                        final usersCreateData =
-                                            createUsersRecordData(
-                                          email: 'email',
-                                        );
-                                        await UsersRecord.collection
-                                            .doc(user.uid)
-                                            .update(usersCreateData);
-
-                                        context.goNamedAuth(
-                                            'Main', context.mounted);
+                                      onPressed: () {
+                                        print('Button pressed ...');
                                       },
                                       text: 'Create Account',
                                       options: FFButtonOptions(
